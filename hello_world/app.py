@@ -1,12 +1,19 @@
 import json
 from aws_lambda_powertools import Tracer, Logger
+from aws_lambda_powertools.utilities.data_classes import (
+    event_source,
+    APIGatewayProxyEvent
+)
+
 
 tracer = Tracer()
 logger = Logger()
 
+
+@event_source(data_class=APIGatewayProxyEvent)
 @logger.inject_lambda_context(log_event=True)
 @tracer.capture_lambda_handler
-def lambda_handler(event, context):
+def lambda_handler(event: APIGatewayProxyEvent, context):
     """Sample pure Lambda function
 
     Parameters
@@ -29,6 +36,8 @@ def lambda_handler(event, context):
     """
 
     logger.info("Running Hello World function")
+    logger.info(f"Method: {event.http_method}")
+    logger.info(f"Path: {event.path}")
 
     return {
         "statusCode": 200,
