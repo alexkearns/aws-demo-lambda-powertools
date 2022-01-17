@@ -1,5 +1,7 @@
 # lambda-powertools-demo
 
+First and foremost, this project serves to demonstrate some of my favourite features of the AWS Lambda Powertools library. Other than that, it is a straightforward AWS SAM Hello World application.
+
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
 - hello_world - Code for the application's Lambda function.
