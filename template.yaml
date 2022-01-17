@@ -21,6 +21,7 @@ Resources:
       Environment:
         Variables:
           POWERTOOLS_SERVICE_NAME: lambda-powertools-demo-hello-world
+          LOG_LEVEL: INFO
       Architectures:
         - x86_64
       Layers:
